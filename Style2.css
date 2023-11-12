@@ -197,6 +197,7 @@ margin-left: calc(50% - 60ch);
   left: 50%; /* 50% from the left */
   transform: translate(-50%, -50%); /* Offset the element by its own dimensions */
   max-width: 100ch;
+  width: 90%;
   animation: fadeIn 2.2s ease-in-out;
 }
 
@@ -350,7 +351,6 @@ label:hover{
   opacity: 1;
   max-width: 18ch;
   margin: auto;
-
 }
 
 .textButtonSmall label{
@@ -500,14 +500,28 @@ body{
   width: calc(100vw - 1.6rem);
 }
 .textCenter{
-  position: relative;
-  top: 10%;
-  text-align: left;
-  margin-top: 8rem;
-  max-width: 100%;
+  display: flex; 
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  flex-direction: column;
+  text-align: left; 
+  position: relative; 
+  top: 10%; 
+  left: 0;
+  transform: none; 
+
+  width: 100%;
+
 }
 
 
+.textButtonSmall label{
+  padding: 1.2rem 0 0 0;
+}
+
+figure.textButtonSmall{
+  margin: 0;
+}
 
 svg#reload-button {
     width: 8.8rem;
@@ -551,7 +565,6 @@ margin-left: 0px;
   margin-top: 4rem;
 }
 
-
 .marquee-part span {
   margin: 0 20vw; /* Adjust the spacing between items */
 
@@ -587,6 +600,5 @@ display: block;
   margin-left: 30px;
   min-width: 20ch;
   }
-
 
 }
