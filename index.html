@@ -200,36 +200,94 @@
 //     moveMarquee();
 // });
 
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Marquee for desktop
+//     const marqueeContent = document.getElementById('marqueeContent');
+//     if (marqueeContent) {
+//         startMarquee(marqueeContent, -2.4); // Speed for desktop marquee
+//     }
+
+//     // Marquee for mobile
+//     const mobileMarqueeContent = document.getElementById('mobileMarqueeContent');
+//     if (mobileMarqueeContent) {
+//         startMarquee(mobileMarqueeContent, -1.5); // Different speed for mobile marquee
+//     }
+// });
+
+// // General function to start marquee with different speeds
+// function startMarquee(contentElement, speed) {
+//     let currentLeft = 0;
+
+//     const moveMarquee = () => {
+//         const contentWidth = contentElement.scrollWidth / 2;
+//         currentLeft += speed; // Use the specified speed
+
+//         // Reset the marquee position before it completely scrolls out of view
+//         if (Math.abs(currentLeft) >= contentWidth) {
+//             currentLeft = 0;
+//         }
+
+//         contentElement.style.transform = `translateX(${currentLeft}px)`;
+//         requestAnimationFrame(moveMarquee);
+//     };
+
+//     moveMarquee();
+// }
+
 document.addEventListener("DOMContentLoaded", function() {
-    // Marquee for desktop
+    // Marquee for both desktop and mobile
     const marqueeContent = document.getElementById('marqueeContent');
-    if (marqueeContent) {
-        startMarquee(marqueeContent, -2.4); // Speed for desktop marquee
+    const mobileMarqueeContent = document.getElementById('mobileMarqueeContent');
+
+    // Function to get speed based on screen width
+    function getSpeed() {
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 768) { // Example breakpoint for mobile
+            return -1; // Speed for mobile
+        } else {
+            return -2.4; // Speed for desktop
+        }
     }
 
-    // Marquee for mobile
-    const mobileMarqueeContent = document.getElementById('mobileMarqueeContent');
-    if (mobileMarqueeContent) {
-        startMarquee(mobileMarqueeContent, -1.5); // Different speed for mobile marquee
+    if (marqueeContent) {
+        startMarquee(marqueeContent, getSpeed());
     }
+
+    if (mobileMarqueeContent) {
+        startMarquee(mobileMarqueeContent, getSpeed());
+    }
+
+    // Adjust marquee speed on window resize
+    window.addEventListener('resize', () => {
+        if (marqueeContent) {
+            startMarquee(marqueeContent, getSpeed());
+        }
+        if (mobileMarqueeContent) {
+            startMarquee(mobileMarqueeContent, getSpeed());
+        }
+    });
 });
 
-// General function to start marquee with different speeds
 function startMarquee(contentElement, speed) {
     let currentLeft = 0;
+    let animationFrameId;
 
     const moveMarquee = () => {
         const contentWidth = contentElement.scrollWidth / 2;
-        currentLeft += speed; // Use the specified speed
+        currentLeft += speed;
 
-        // Reset the marquee position before it completely scrolls out of view
         if (Math.abs(currentLeft) >= contentWidth) {
             currentLeft = 0;
         }
 
         contentElement.style.transform = `translateX(${currentLeft}px)`;
-        requestAnimationFrame(moveMarquee);
+        animationFrameId = requestAnimationFrame(moveMarquee);
     };
+
+    // Cancel the previous animation before starting a new one
+    if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+    }
 
     moveMarquee();
 }
