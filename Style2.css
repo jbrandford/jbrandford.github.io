@@ -445,9 +445,9 @@ opacity: 1;
 }
 
     
-input[type=checkbox]#toggle:not(:checked) ~ .background {
+/* input[type=checkbox]#toggle:not(:checked) ~ .background {
   opacity: 0;
-}   
+}    */
 input[type=checkbox]#toggle:checked ~ .background {
   opacity: 1;
   }
