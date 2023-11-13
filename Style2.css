@@ -417,29 +417,13 @@ a{
 }
 
 
-/* .marquee-item {
-  transition-duration: 600ms;
-  transition-property: background-color;
-  transition-timing-function: ease;
-  animation-delay: 0ms;
-  -webkit-transition-duration:600ms;
-  -webkit-transition-property: background-color;
-  -webkit-transition-timing-function: ease;
-  -moz-transition-duration: 380ms;
-  -moz-transition-property: background-color;
-  -moz-transition-timing-function: quintic;
-  -o-transition-duration: 380ms;
-  -o-transition-property: background-color;
-  -o-transition-timing-function: quintic;
-} */
-
 a:hover,
 figure span:hover{
   opacity: .5;
 }
-/* input[type=checkbox]{
+input[type=checkbox]{
   display: none;
-} */
+}
 .textButtonSmall:checked  ~ .background {
 opacity: 1;
 }
