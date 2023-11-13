@@ -452,10 +452,10 @@ input[type=checkbox]#toggle:checked ~ .background {
   opacity: 1;
   }
 
-/*   input[type=checkbox]#toggle:hover ~ .background {
+  input[type=checkbox]#toggle:hover ~ .background {
     opacity: 1;
     }
- */
+
 
 
  
@@ -480,6 +480,8 @@ input[type=checkbox]#toggle:checked ~ .mainContainer .showOnCheck{
 opacity: 1;
 display: contents;
 }
+
+
 input[type=checkbox]#toggle:checked ~ .mainContainer .textCenter{
 max-width: 89ch;
 }
@@ -587,6 +589,9 @@ visibility: hidden;
 input[type=checkbox]#toggle:checked ~ .mainContainer svg#closingX {
 display: block;
 }
+input[type=checkbox]#toggle:hover{
+  pointer-events: none;
+  }
 }
 
 /*Tablet*/
