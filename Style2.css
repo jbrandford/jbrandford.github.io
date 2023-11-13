@@ -437,9 +437,9 @@ a:hover,
 figure span:hover{
   opacity: .5;
 }
-input[type=checkbox]{
+/* input[type=checkbox]{
   display: none;
-}
+} */
 .textButtonSmall:checked  ~ .background {
 opacity: 1;
 }
