@@ -199,7 +199,7 @@ margin-left: calc(50% - 60ch);
   top: 50%; /* 50% from the top */
   left: 50%; /* 50% from the left */
   transform: translate(-50%, -50%); /* Offset the element by its own dimensions */
-  max-width: 100ch;
+  /* max-width: 100ch; */
   width: 90%;
   /* animation: fadeIn 2.2s ease-in-out; */
 }
@@ -437,9 +437,10 @@ a{
 } */
 
 a:hover,
-figure span:hover{
+figure .key:hover{
   opacity: .5;
 }
+
 
 
 
@@ -487,7 +488,7 @@ display: contents;
 
 
 input[type=checkbox]#toggle:checked ~ .mainContainer .textCenter{
-max-width: 89ch;
+max-width: 120ch;
 }
 input[type=checkbox]#toggle:checked ~ .mainContainer .contact{
 display: block;
@@ -591,7 +592,9 @@ margin-left: 0px;
   margin: 0 20vw; /* Adjust the spacing between items */
 
 }
-
+.bold{
+  padding-bottom: 0px;
+}
 
 input[type=checkbox]#toggle:checked ~ .mainContainer svg#reload-button {
 visibility: hidden;
