@@ -198,7 +198,7 @@ margin-left: calc(50% - 60ch);
   transform: translate(-50%, -50%); /* Offset the element by its own dimensions */
   max-width: 100ch;
   width: 90%;
-  animation: fadeIn 2.2s ease-in-out;
+  /* animation: fadeIn 2.2s ease-in-out; */
 }
 
 @keyframes fadeIn{
