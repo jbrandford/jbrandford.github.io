@@ -67,8 +67,8 @@
   	L427.6,55.8L427.6,55.8z"/>
   </svg>
 <label for="toggle"id="toggleLabel4">
-    <figure class="menuButton toggleHide contactHide interactive">Information</figure>
-    <svg version="1.1" id="closingX" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <figure class="menuButton toggleHide contactHide interactive">Information</figure></label>
+    <label for="toggle"id="toggleLabel2"><svg version="1.1" id="closingX" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     	 viewBox="0 0 15 15" style="enable-background:new 0 0 15 15;" xml:space="preserve" fill="currentcolor">
     <polygon class="st0" points="14.8,0.7 14.3,0.2 7.5,7 0.7,0.2 0.2,0.7 7,7.5 0.2,14.3 0.7,14.8 7.5,8 14.3,14.8 14.8,14.3 8,7.5 "/>
   </svg></label>
@@ -93,50 +93,6 @@
     </div>
   </div>
 </div>
-
-
-<!-- 
-<div class="marquee mobile-marquee toggleHide">
-  <div class="marquee-content" id="mobileMarqueeContent">
-    <div class="marquee-part">
-      <span>lLondon</span>
-      <span>lNew York</span>
-      <span>lMiami</span>
-      <span>lCôte d'Azur</span>
-    </div>
-    <div class="marquee-part">
-      <span>lLondon</span>
-      <span>lNew York</span>
-      <span>lMiami</span>
-      <span>lCôte d'Azur</span>
-    </div>
-  </div>
-</div> -->
-  <!-- <div class="marquee-item">
-    <figure href="#">London</figure>
-    <figure href="#">New York</figure>
-    <figure href="#">Miami</figure>
-    <figure href="#">Côte d'Azur</figure>
-  </div>
-    <div class="marquee-item">
-      <figure href="#">London</figure>
-      <figure href="#">New York</figure>
-      <figure href="#">Miami</figure>
-      <figure href="#">Côte d'Azur</figure>
-  </div>
-    <div class="marquee-item">
-      <figure href="#">London</figure>
-      <figure href="#">New York</figure>
-      <figure href="#">Miami</figure>
-      <figure href="#">Côte d'Azur</figure>
-  </div>
-  <div class="marquee-item">
-    <figure href="#">London</figure>
-    <figure href="#">New York</figure>
-    <figure href="#">Miami</figure>
-    <figure href="#">Côte d'Azur</figure>
-  </div> -->
-<!-- </div> -->
 
 
 
@@ -169,70 +125,6 @@
 
   </body>
   <script>
-//     // Get the button element by its ID
-//     const reloadButton = document.getElementById("reload-button");
-
-//     // Add a click event listener to the button
-//     reloadButton.addEventListener("click", () => {
-//       // Call the location.reload() method to reload the page
-//       location.reload();
-//     });
-
-    
-//     document.addEventListener("DOMContentLoaded", function() {
-//     const marqueeContent = document.getElementById('marqueeContent');
-//     let currentLeft = 0;
-//     const moveMarquee = () => {
-//         const contentWidth = marqueeContent.scrollWidth / 2;
-
-//         // Adjust the speed by changing the value subtracted from currentLeft
-//         currentLeft -= 2.4;
-
-//         // Reset the marquee position before it completely scrolls out of view
-//         if (Math.abs(currentLeft) >= contentWidth) {
-//             currentLeft += contentWidth;
-//         }
-
-//         marqueeContent.style.transform = `translateX(${currentLeft}px)`;
-//         requestAnimationFrame(moveMarquee);
-//     };
-
-//     moveMarquee();
-// });
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Marquee for desktop
-//     const marqueeContent = document.getElementById('marqueeContent');
-//     if (marqueeContent) {
-//         startMarquee(marqueeContent, -2.4); // Speed for desktop marquee
-//     }
-
-//     // Marquee for mobile
-//     const mobileMarqueeContent = document.getElementById('mobileMarqueeContent');
-//     if (mobileMarqueeContent) {
-//         startMarquee(mobileMarqueeContent, -1.5); // Different speed for mobile marquee
-//     }
-// });
-
-// // General function to start marquee with different speeds
-// function startMarquee(contentElement, speed) {
-//     let currentLeft = 0;
-
-//     const moveMarquee = () => {
-//         const contentWidth = contentElement.scrollWidth / 2;
-//         currentLeft += speed; // Use the specified speed
-
-//         // Reset the marquee position before it completely scrolls out of view
-//         if (Math.abs(currentLeft) >= contentWidth) {
-//             currentLeft = 0;
-//         }
-
-//         contentElement.style.transform = `translateX(${currentLeft}px)`;
-//         requestAnimationFrame(moveMarquee);
-//     };
-
-//     moveMarquee();
-// }
 
 document.addEventListener("DOMContentLoaded", function() {
     // Marquee for both desktop and mobile
@@ -299,32 +191,6 @@ reloadButton.addEventListener("click", () => {
 });
 
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     const textElement = document.querySelector('.textButtonSmall.interactive');
-//     const backgroundElement = document.querySelector('.background');
-
-//     // Hover event to change background opacity
-//     textElement.addEventListener('mouseenter', () => {
-//         backgroundElement.style.opacity = 1;
-//     });
-//     textElement.addEventListener('mouseleave', () => {
-//         // Only reset opacity if checkbox is not checked
-//         if (!document.getElementById('toggle').checked) {
-//             backgroundElement.style.opacity = '';
-//         }
-//     });
-
-//     // Listen for changes to the checkbox
-//     const checkbox = document.getElementById('toggle');
-//     checkbox.addEventListener('change', () => {
-//         // Update the background opacity based on checkbox state
-//         if (checkbox.checked) {
-//             backgroundElement.style.opacity = 1;
-//         } else {
-//             backgroundElement.style.opacity = '';
-//         }
-//     });
-// });
 </script>
 
 
