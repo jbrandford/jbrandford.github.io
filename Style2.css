@@ -448,9 +448,13 @@ input[type=checkbox]#toggle:checked ~ .background {
   opacity: 1;
   }
 
-  input[type=checkbox]#toggle:hover ~ .background {
+input[type=checkbox]#toggle:hover ~ .background {
     opacity: 1;
     }
+
+    input[type=checkbox]#toggle2:checked ~ .background {
+      opacity: 0;
+      }
 
 input[type=checkbox]#toggle:checked ~ .mainContainer .toggleHide{
 display: none;
