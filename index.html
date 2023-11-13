@@ -192,23 +192,6 @@ reloadButton.addEventListener("click", () => {
 });
 
 
-// X functionality fix
-document.addEventListener('DOMContentLoaded', function() {
-  const checkbox = document.getElementById('toggle');
-  const background = document.querySelector('.background');
-  const label = document.getElementById('toggle2');
-
-  checkbox.addEventListener('change', function() {
-    if (this.checked && label) {
-      background.style.opacity = 0;
-    } else {
-      background.style.opacity = '';
-    }
-  });
-});
-
-
-
 </script>
 
 
