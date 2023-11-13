@@ -452,10 +452,10 @@ input[type=checkbox]#toggle:checked ~ .background {
   opacity: 1;
   }
 
-  input[type=checkbox]#toggle:hover ~ .background {
+/*   input[type=checkbox]#toggle:hover ~ .background {
     opacity: 1;
     }
-
+ */
 
 
  
