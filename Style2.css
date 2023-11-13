@@ -437,9 +437,9 @@ a:hover,
 figure span:hover{
   opacity: .5;
 }
-/* input[type=checkbox]{
+input[type=checkbox]{
   display: none;
-} */
+}
 .textButtonSmall:checked  ~ .background {
 opacity: 1;
 }
@@ -497,12 +497,12 @@ color: var(--white);
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 1140px) and (pointer:fine) {
+@media screen and (min-width: 1024px) and (pointer:fine) {
  input[type=checkbox]#toggle:hover ~ .background {
     opacity: 1;
     }
   }
-  
+
 /*Mobile*/
 @media screen and (max-width: 767px) {
 
