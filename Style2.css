@@ -98,6 +98,9 @@ p, label{
   padding-bottom: 9px;
   color: var(--white);
 }
+.bold.micro{
+  font-size: .7rem;
+}
 
 
 /*ELEMENTS*/
@@ -437,6 +440,9 @@ a:hover,
 figure span:hover{
   opacity: .5;
 }
+
+
+
 input[type=checkbox]{
   display: none;
 }
