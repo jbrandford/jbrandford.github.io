@@ -602,11 +602,11 @@ visibility: hidden;
 input[type=checkbox]#toggle:checked ~ .mainContainer svg#closingX {
 display: block;
 }
-input[type=checkbox]#toggle:checked ~ .mainContainer h1 {
+/* input[type=checkbox]#toggle:checked ~ .mainContainer h1 {
 
 font-size: 1.3rem;
 line-height: 2rem;
-}
+} */
 }
 
 /*Tablet*/
