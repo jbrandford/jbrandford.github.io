@@ -1,637 +1,214 @@
-/*GLOBAL*/
-*{
-  padding:0;
-  margin:0;
-}
-::selection {
-  background: #4B5057;
-  color: #fff;
-}
-::-moz-selection{
-  background: #4B5057;
-  color: #fff;
-}
-html{
-  overflow: hidden;
-}
-
-body{
--webkit-text-size-adjust: 100%;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-font-smoothing: antialiased;
--webkit-tap-highlight-color: rgba(0,0,0,0);
-scroll-behavior: [ auto | smooth ];
-font-weight: normal;
-font-style: normal;
-font-kerning: normal;
-overflow-x: hidden;
-overflow-y: hidden;
-background: var(--neutral);
-
-}
-
-/*TYPE*/
-@font-face {
-  font-family: "300";
-  src: url("Fonts/Lausanne-300.woff2") format('woff2');
-}
-@font-face {
-  font-family: "600";
-  src: url("Fonts/Lausanne-600.woff2") format('woff2');
-}
-@font-face {
-  font-family: "Serif";
-  src: url("Fonts/Independent-Text.woff2") format('woff2');
-}
-@font-face {
-  font-family: "SerifItalic";
-  src: url("Fonts/Independent-Text-Italic.woff2") format('woff2');
-}
-:root{
-    --black: #000;
-    --white: #fff;
-    --interactive: #8E8E8E;
-    --lightgrey: #C4C4C4;
-    --border: #E9E9E9;
-    --neutral: #9C9791;
-    --london: #4B5057;
-    --newyork: #9C9791;
-    --cotedazur: #A3BDCB;
-    --miami: #BD6F89;
-}
-ul,
-figure,
-.marquee-part,
-p,
-h2,
-h1{
-  font-weight: normal;
-  font-family: "300";
-}
-
-h1{
-  font-family: "Serif";
-  font-size: 1.5rem;
-  line-height: 2.4rem;
-  font-weight: normal;
-  color: var(--white);
-}
-h2{
-  font-family: "300";
-  font-size: 1.24rem;
-  line-height: 1.62rem;
-  color: var(--white);
-}
-figure,
-.marquee-part{
-  font-size: .82rem;
-  line-height: 1.34rem;
-}
-p, label{
-  line-height: 1.3rem;
-  font-size: 14px;
-}
-.bold{
-  font-family: "600";
-  font-weight: normal;
-  padding-bottom: 9px;
-  color: var(--white);
-}
-.bold.micro{
-  font-size: .7rem;
-}
-
-
-/*ELEMENTS*/
-.background{
-  width: 100vw;
-  height: 100vh;
-  background: var(--cotedazur);
-  /* position: fixed; */
-  z-index: -2;
-  opacity: 0;
-  top:0;
-  left:0;
-  transition-duration: 600ms;
-  transition-property: opacity;
-  transition-timing-function: ease;
-  -webkit-transition-duration: 600ms;
-  -webkit-transition-property: opacity;
-  -webkit-transition-timing-function: ease;
-  transition-duration: 600ms;
-  -moz-transition-duration: 600ms;
-  -moz-transition-property: opacity;
-  -moz-transition-timing-function: quintic;
-  -o-transition-duration: 600ms;
-  -o-transition-property: opacity;
-  -o-transition-timing-function: quintic;
-}
-.container{
-  height: 100vh;
-}
-.container, .topBar{
-  width: calc(100vw - 2rem);
-  margin: auto;
-}
-.topBar{
-padding: 2.2rem 0;
-position: relative;
-}
-.container, .topBar, .contactBar{
-  width: calc(100vw - 12rem);
-  max-width: 1520px;
-  margin: auto;
-}
-svg#reload-button {
-  color:var(--white);
-  width: 10rem;
-}
-svg#closingX {
-  display: none;
-}
-
-.menuButton{
-left: 50%;
-}
-.contactBar{
-  position: absolute;
-  display: flex;
-  top: 3.4rem;
-  pointer-events: none;
-  /*z index breaks link hover*/
-}
-.contact{
-  width: 50%;
-  float: left;
-  margin-bottom: 2rem;
-  color: var(--interactive);
-  display: none;
-}
-.c2{
-margin-left: calc(50% - 30ch);
-
-}
-.c3{
-margin-left: calc(50% - 60ch);
-
-}
-/* .textCenter{
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  opacity: 1;
-  margin: auto;
-  animation: fadeIn 2.2s ease-in-out;
-  margin-top: 30vh;
-  max-width: 100ch;
-} */
-
-.textCenter {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Center vertically in the flex container */
-  justify-content: center; /* Center horizontally in the flex container */
-  flex-direction: column;
-  text-align: center;
-  opacity: 1;
-  position: absolute; /* Position it absolutely */
-  top: 50%; /* 50% from the top */
-  left: 50%; /* 50% from the left */
-  transform: translate(-50%, -50%); /* Offset the element by its own dimensions */
-  /* max-width: 100ch; */
-  width: 90%;
-  /* animation: fadeIn 2.2s ease-in-out; */
-}
-
-/* @keyframes fadeIn{
- 0%{
-   opacity: 0;
- }
- 100%{
-   opacity: 1;
- }
-} */
-.menuButton{
-  margin: 0;
-  position: absolute;
-  top: 55%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 1rem;
-  color: var(--white);
-}
-.textButtonSmall{
-  padding-top: 1rem;
-}
-
-
-
-.marquee.mobile-marquee,
-.marquee.mobile-marquee .marquee-item
-{
-  height: 0;
-  display: none;
-}
-
-
-
-.marquee {
-  width: 100vw;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  
-  height: 3rem;
-  border-top: 1px solid rgba(255,255,255, 0.2);
-}
-.marquee-part{
-  color: var(--white);
-  opacity: .6;
-  padding-top: .3rem;
-
-}
-
-.marquee-content {
-  display: flex; /* Ensures the two parts are laid out side by side */
-}
-
-.marquee-part span {
-  margin: 0 12vw; /* Adjust the spacing between items */
-
-}
-/* 
-.marquee .marquee-item {
-  animation: marquee 40s linear infinite; 
-  position: absolute;
-  width: 100%;
-  left: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  
-}
-
-.marquee .marquee-item:after {
-  content: "";
-  width: 10px;
-  flex-shrink: 0;
-} */
-
-/* .marquee .marquee-item:nth-child(2) {
-  animation-delay: 10s;
-}
-
-.marquee .marquee-item:nth-child(3) {
-  animation-delay: 20s;
-} */
-
-/* .marquee .marquee-item:nth-child(4) {
-  animation-delay: 30s;
- } */
-
-/*.marquee:hover .marquee-item {
-  animation-play-state: paused;
-}*/
-/* 
-@keyframes marquee {
-  0% { left: 10%; }
-  50% { left: -100%; }
-  100% { left: -100%; }
-}
-
-@keyframes marquee-child2 {
-  0% { left: 100%; }
-  50% { left: -10%; }
-  100% { left: -110%; }
-}
-
-.marquee .marquee-item:nth-child(1) {
-  background: var(--neutral);
-}
-
-.marquee .marquee-item:nth-child(2) {
-  animation-name: marquee-child2;
-  animation-delay: 1.83s;
-  background: var(--neutral);
-}
-
-.marquee .marquee-item:nth-child(3) {
-  animation-name: marquee-child3;
-  animation-delay: 19.8s;
-  background: var(--neutral);
-}
-
-@keyframes marquee-child3 {
-  0% { left: 100%; }
-  50% { left: 0%; }
-  100% { left: -100%; }
-}
-
-.marquee .marquee-item:nth-child(4) {
-  animation-name: marquee-child3;
-  animation-delay: 39.8s;
-  background:var(--neutral);
-}
-
-@keyframes marquee-child4 {
-  0% { left: 100%; }
-  50% { left: 0%; }
-  100% { left: -100%; }
-} */
-
-
-
-/*INTERACTION*/
-
-#reload-button:hover,
-label:hover{
-  cursor: pointer;
-}
-
-.textButtonSmall{
-  color: var(--white);
-  opacity: 1;
-  max-width: 18ch;
-  margin: auto;
-}
-
-.textButtonSmall label{
-  padding: 1.2rem;
-}
-
-
-.textButtonSmall,
-.menuButton{
-  transition-duration: 800ms;
-  transition-property: all;
-  transition-timing-function: quintic;
-  -webkit-transition-duration: 800ms;
-  -webkit-transition-property: color;
-  -webkit-transition-timing-function: quintic;
-  -moz-transition-duration: 800ms;
-  -moz-transition-property: all;
-  -moz-transition-timing-function: quintic;
-  -o-transition-duration: 800ms;
-  -o-transition-property: all;
-  -o-transition-timing-function: quintic;
-}
-
-.menuButton:hover,
-.textButtonSmall:hover,
-svg#reload-button{
-  cursor: pointer;
-  color: rgba(255,255,255, 0.44);
-}
-figure span{
-  color: var(--white);
-  text-decoration: none;
-  pointer-events: all;
-  transition-duration: 400ms;
-  transition-property: all;
-  transition-timing-function: quintic;
-  -webkit-transition-duration: 400ms;
-  -webkit-transition-property: opacity;
-  -webkit-transition-timing-function: quintic;
-  -moz-transition-duration: 400ms;
-  -moz-transition-property: all;
-  -moz-transition-timing-function: quintic;
-  -o-transition-duration: 400ms;
-  -o-transition-property: all;
-  -o-transition-timing-function: quintic;
-
-}
-a{
-  text-decoration: none;
-  color: var(--white);
-  transition-duration: 400ms;
-  transition-property: all;
-  transition-timing-function: quintic;
-  -webkit-transition-duration: 400ms;
-  -webkit-transition-property: opacity;
-  -webkit-transition-timing-function: quintic;
-  -moz-transition-duration: 400ms;
-  -moz-transition-property: all;
-  -moz-transition-timing-function: quintic;
-  -o-transition-duration: 400ms;
-  -o-transition-property: all;
-  -o-transition-timing-function: quintic;
-
-}
-
-
-/* .marquee-item {
-  transition-duration: 600ms;
-  transition-property: background-color;
-  transition-timing-function: ease;
-  animation-delay: 0ms;
-  -webkit-transition-duration:600ms;
-  -webkit-transition-property: background-color;
-  -webkit-transition-timing-function: ease;
-  -moz-transition-duration: 380ms;
-  -moz-transition-property: background-color;
-  -moz-transition-timing-function: quintic;
-  -o-transition-duration: 380ms;
-  -o-transition-property: background-color;
-  -o-transition-timing-function: quintic;
-} */
-
-a:hover,
-figure .key:hover{
-  opacity: .5;
-}
-
-
-
-
-input[type=checkbox]{
-  display: none;
-}
-.textButtonSmall:checked  ~ .background {
-opacity: 1;
-}
-
-    
-/* input[type=checkbox]#toggle:not(:checked) ~ .background {
-  opacity: 0;
-}    */
-input[type=checkbox]#toggle:checked ~ .background {
-  opacity: 1;
-  }
-
- 
-
-
-
- 
-
-   
-
-input[type=checkbox]#toggle:checked ~ .mainContainer .toggleHide{
-display: none;
-}
-.showOnCheck{
-  display: none;
-    color: var(--white);
-}
-input[type=checkbox]#toggle:checked ~ .mainContainer .toggleHide.marquee{
-display: block;
-visibility: hidden;
-}
-
-
-
-input[type=checkbox]#toggle:checked ~ .mainContainer .showOnCheck{
-opacity: 1;
-display: contents;
-}
-
-
-input[type=checkbox]#toggle:checked ~ .mainContainer .textCenter{
-max-width: 120ch;
-}
-input[type=checkbox]#toggle:checked ~ .mainContainer .contact{
-display: block;
-opacity: 1;
-}
-input[type=checkbox]#toggle:checked ~ .mainContainer .menuButton.showOnCheck.close{
-opacity: 0;
-visibility: hidden;
-}
-input[type=checkbox]#toggle:checked ~ .mainContainer svg#reload-button {
-color: var(--white);
-}
-
-/* MEDIA QUERIES */
-
-@media screen and (min-width: 1024px) and (pointer:fine) {
- input[type=checkbox]#toggle:hover ~ .background {
-    opacity: 1;
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Exceptional accommodation and meaningful experiences. Discover handpicked hotels, apartments and more.">
+    <title> Time to Stay</title>
+  <link rel="stylesheet" href="Style2.css" type="text/css">
+  <!-- <link rel="icon" type="image/png" href="Img/IcoDm.png" media="(not all and (min-resolution: 1.5dppx)) and (prefers-color-scheme:dark)">
+  <link rel="icon" type="image/png" href="Img/IcoLm.png" media="(not all and (min-resolution: 1.5dppx)) and (prefers-color-scheme:light)">
+  <link rel="icon" type="image/svg+xml" href="Img/IcoDm.svg" media="(all and (min-resolution: 1.5dppx) and (prefers-color-scheme:dark))">
+  <link rel="icon" type="image/svg+xml" href="Img/IcoLm.svg" media="(all and (min-resolution: 1.5dppx) and (prefers-color-scheme:light))"> -->
+
+  <link rel="icon" href="Img/IcoDm.svg" media="(prefers-color-scheme:dark)">
+  <link rel="icon" href="Img/IcoLm.svg" media="(prefers-color-scheme:light)">
+
+  <link rel="mask-icon" href="Img/IcoSf.svg" color="#ffffff">
+
+  <!-- <link rel="icon" type="image/png" href="Img/favicon-96x96.png" sizes="96x96"> -->
+  <link rel="apple-touch-icon" href="favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Img/favicon-180x180.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="Img/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="Img/favicon-167x167.png">
+
+  </head>
+  <body>
+
+
+<input type="checkbox" id="toggle">
+
+<div class="mainContainer">
+<div class="topBar">
+
+  <svg version="1.1" id="reload-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  	 viewBox="0 0 466.8 115.7" style="enable-background:new 0 0 466.8 115.7;" xml:space="preserve" fill="white">
+  <path d="M51.4,38l-3.1-10.8l15.9,4.6l-3.1-5.9l3.1-5.9l-15.9,4.6l4.6-15.9L47,11.8l-5.9-3.1l4.6,15.9L29.8,20l3.1,5.9l-3.1,5.9
+  	l15.9-4.6L42.5,38c-16.9,2.2-30,16.7-30,34.2c0,19,15.4,34.4,34.4,34.5l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c19,0,34.4-15.5,34.4-34.5
+  	C81.4,54.7,68.3,40.2,51.4,38z M76,69.1c-1.7-1.1-4-2-6.7-2.9l0,0c-1.3-0.4-2.3-1.5-2.6-2.9l0,0c-1.1-6.8-3.4-12.7-6.5-17.1
+  	C68.8,50.5,75,59,76,69.1z M46.9,86.9c-17.9,0-32.3-6-32.3-13.3c0-1.6,1.2-3.2,3.2-4.6c-0.1,1-0.2,2.1-0.2,3.2c0,0.2,0,0.4,0,0.5
+  	c0.1,1.6,0.8,3.1,2.1,4.1c0.9,0.7,2,1.3,3.3,1.8c0.8,0.3,1.7,0.2,2.4-0.3c0.7-0.5,1.1-1.4,1.1-2.2l0,0c-0.1-1.2-0.1-2.5-0.1-3.8
+  	c0-2.3,0.1-4.6,0.4-6.9c-3.8,0.9-6.9,2.1-9,3.5c1.1-10.1,7.2-18.6,15.9-23c-3.5,4.9-5.9,11.7-6.9,19.5c1.6-0.4,3.3-0.7,5.2-1
+  	c0.2-1.5,0.5-2.9,0.9-4.3c0.9-3.6,2.2-6.9,3.9-9.6c1.5-2.5,3.3-4.6,5.1-5.9c1.6-1.1,3.2-1.7,4.8-1.8c0.1,0,0.2,0,0.3,0s0.2,0,0.4,0
+  	c1.6,0.1,3.2,0.7,4.8,1.8c1.9,1.3,3.6,3.3,5.1,5.9c1.6,2.8,2.9,6,3.9,9.6c0.2,0.8,0.4,1.6,0.5,2.4c0.1,0.4-0.1,0.9-0.4,1.2
+  	c-0.3,0.3-0.8,0.5-1.2,0.4l0,0c-4-0.6-8.4-0.9-13-0.9c-5.4,0-10.5,0.4-15,1.1c-0.4,2.6-0.6,5.2-0.6,7.9c0,1.3,0.1,2.7,0.2,4
+  	c0.3,2.9,2.5,5.2,5.4,5.6c3.1,0.3,6.5,0.5,10,0.5c12.2,0,22.7-2.3,27.1-5.5c1.3-1,2.1-2.4,2.1-4c0-0.2,0-0.4,0-0.7
+  	c0-1.1-0.1-2.1-0.2-3.2c2.1,1.4,3.2,2.9,3.2,4.5C79.3,80.9,64.8,86.9,46.9,86.9z M142.1,49.7h-13.7v39.5h-7.8V49.7H107v-6.6h35.2
+  	L142.1,49.7L142.1,49.7z M145.5,50.6v-7.4h7.8v7.4H145.5z M145.7,55.8h7.4v33.4h-7.4V55.8z M207.2,66.9v22.3h-7.3V69.6
+  	c0-5.6-1.7-8.6-6.2-8.6c-4.1,0-6.8,3-6.8,11v17.2h-7.2V69.6c0-5-1.5-8.6-6.1-8.6c-5,0-7,4.5-7,11v17.2h-7.4V55.8h7.4v6.8h0.1
+  	c1-4.7,4.4-7.7,9.6-7.7c5.1,0,8.8,2.6,9.9,7.1c1-3.8,4.8-7.1,9.6-7.1C203.2,54.9,207.2,59.4,207.2,66.9z M244.4,74.5h-25.7
+  	c0.5,6.1,4.4,9.6,9.6,9.6c3.8,0,7-1.4,8.2-4.8h7.4c-2,6.8-7.7,10.8-15.6,10.8c-10,0-16.8-7.2-16.8-17.7c0-10.1,7.1-17.5,16.8-17.5
+  	c11.4,0,16,8.8,16.1,18.2V74.5z M236.9,69.1c-0.5-5.2-3.5-8.4-8.7-8.4s-8.6,3.3-9.4,8.4H236.9z M270.8,61.6v16.1
+  	c0,3.4,1,5.7,3.8,5.7h2v5.7H273c-7.3,0-9.7-4.7-9.7-10.6v-17h-5.2v-5.8h5.2v-7.5l7.2-3.6h0.3v11.1h6.5v5.8h-6.5V61.6z M279,72.5
+  	c0-10.5,7.3-17.6,17.2-17.6c9.9,0,17.2,7.2,17.2,17.6c0,10.5-7.3,17.6-17.2,17.6S279,83,279,72.5z M305.8,72.5
+  	c0-6.8-4.1-11.5-9.7-11.5c-5.5,0-9.7,4.7-9.7,11.5c0,6.7,4.1,11.5,9.7,11.5S305.8,79.2,305.8,72.5z M346.8,48.5
+  	c-4.5,0-8.5,1.9-8.5,6.6c0,4.1,4.3,5.9,10.3,7.5c7.8,2.1,16.2,4.1,16.2,13.9c0,9.4-9,13.7-17.4,13.7c-10.2,0-18.1-5.1-18.6-16.1h8
+  	c0.2,6.2,4.6,9.6,10.6,9.6c5.2,0,9.7-2.3,9.7-7.1c0-5-5.2-6-11-7.6c-7.6-2.1-15.4-4.8-15.6-13.8C330.4,46.4,338.6,42,347,42
+  	c9.4,0,16.1,4.6,16.6,14.7h-7.8C355.2,51.2,352.3,48.5,346.8,48.5z M379.4,61.6v16.1c0,3.4,1,5.7,3.8,5.7h2v5.7h-3.5
+  	c-7.3,0-9.7-4.7-9.7-10.6v-17h-5.2v-5.8h5.2v-7.5l7.2-3.6h0.3v11.1h6.5v5.8h-6.6L379.4,61.6L379.4,61.6z M418.7,89.2h-7.6
+  	c-0.3-1.4-0.3-2.9-0.3-4.5v-1h-0.1c-1.2,3-4.2,6.3-10.6,6.3c-7.5,0-11.7-4.6-11.7-9.9c0-9.7,11.4-9.9,16.1-10.7
+  	c4.4-0.7,6.2-1.4,6.2-4.1c0-2.8-2.4-4.6-6.5-4.6c-3.6,0-6.2,2-6.4,5.4h-7.3c0.3-5.5,4.6-11.2,13.6-11.2c11.1,0,13.9,6.6,13.9,13.8
+  	v12.8C418.1,84,418.2,87.4,418.7,89.2z M410.9,70.3c-0.8,2-2.6,3.5-8.1,4.5c-4.6,0.8-7,2.1-7,5.1c0,2.6,2.3,4.6,6.2,4.6
+  	c4.6,0,8.9-3.3,8.9-10.7V70.3z M427.6,55.8c3.1,8.8,6.1,16.8,9.2,25.6h0.1c2.5-8.1,5.4-16.7,8.3-25.6h7.9
+  	c-8.2,22.7-6.2,16.5-14.7,39.9c-1.5,4-4.1,6.3-8.6,6.3h-5.7v-5.9h3.6c2.7,0,3.5-1.2,4.4-3.5l1-2.6c-4.8-12.6-9.1-23.2-13.3-34.1h7.8
+  	L427.6,55.8L427.6,55.8z"/>
+  </svg>
+<label for="toggle"id="toggleLabel4">
+    <figure class="menuButton toggleHide contactHide interactive">Information</figure></label>
+    <label for="toggle"id="toggleLabel2"><svg version="1.1" id="closingX" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    	 viewBox="0 0 15 15" style="enable-background:new 0 0 15 15;" xml:space="preserve" fill="currentcolor">
+    <polygon class="st0" points="14.8,0.7 14.3,0.2 7.5,7 0.7,0.2 0.2,0.7 7,7.5 0.2,14.3 0.7,14.8 7.5,8 14.3,14.8 14.8,14.3 8,7.5 "/>
+  </svg></label>
+</div>
+
+
+
+
+<div class="marquee toggleHide">
+  <div class="marquee-content" id="marqueeContent">
+    <div class="marquee-part">
+      <span>London</span>
+      <span>New York</span>
+      <span>Miami</span>
+      <span>Côte d'Azur</span>
+    </div>
+    <div class="marquee-part">
+      <span>London</span>
+      <span>New York</span>
+      <span>Miami</span>
+      <span>Côte d'Azur</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+<div class="contactBar">
+<div class="contact c1"></div>
+
+<!-- <div class="contact c2 interactive"><figure class="bold">Get in touch</figure><a href="mailto:reservations@timetostay.com"><figure><span>reservations@timetostay.com</span></figure></a><a href="https://wa.me/447723655892"></a><figure><span>WhatsApp</span> &ensp;|&ensp; <a href="https://wa.me/447723655892"><span>WeChat</span></a></figure></div> -->
+<div class="contact c2 interactive"><figure class="bold">Get in touch</figure><figure><a href="mailto:reservations@timetostay.com"><span>reservations@timetostay.com</span></a><figure><a href="https://wa.me/442037439862"><span>WhatsApp</span></a></div> 
+
+<!-- <div class="contact c3 interactive"><figure class="bold">Telephone</figure><a href="tel:+447724508888"><figure><span><span class="bold micro">UK</span>&ensp;+44 (0)20 3743 2223</span></figure></a><a href="tel:+19176791211"><figure><span><span class="bold micro">US</span>&ensp;+1 917 679 1211</span></span></figure></a></div> -->
+<div class="contact c3 interactive">
+  <figure class="bold">Telephone</figure>
+  <a href="tel:+442037439862">
+    <figure>
+      <span class="bold micro">UK</span><span class="key">&ensp;+44 (0)20 3743 9862</span>
+    </figure>
+  </a>
+  <a href="tel:+19176791211">
+    <figure>
+      <span class="bold micro">US</span><span class="key">&ensp;+1 917 679 1211</span>
+    </figure>
+  </a>
+</div>
+
+
+</div>
+
+<div class="textCenter">
+        <h1><span class="toggleHide">Effortless travel arrangements – handpicked hotels, apartments and more.</span><span class="showOnCheck" id="secondaryText">Our office has served private clients for over a decade. Impeccable accommodation, tailored experiences and personal service keep them coming back.</span></h1>
+        
+          <figure class="textButtonSmall interactive toggleHide"><label for="toggle"id="toggleLabel3">Reservations&ensp;&#8594;</label></figure>   
+           
+      </div>
+
+
+
+</div>
+</div>
+
+
+
+<div class="background"></div>
+
+  </body>
+  <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Marquee for both desktop and mobile
+    const marqueeContent = document.getElementById('marqueeContent');
+    const mobileMarqueeContent = document.getElementById('mobileMarqueeContent');
+
+    // Function to get speed based on screen width
+    function getSpeed() {
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 768) { // Example breakpoint for mobile
+            return -1; // Speed for mobile
+        } else {
+            return -1.6; // Speed for desktop
+        }
     }
-  }
 
-/*Mobile*/
-@media screen and (max-width: 767px) {
+    if (marqueeContent) {
+        startMarquee(marqueeContent, getSpeed());
+    }
 
-body{
-  overflow-y: hidden;
-  max-height: 100vh;
-  max-width: 100vw;
-  position: absolute;
-}
+    if (mobileMarqueeContent) {
+        startMarquee(mobileMarqueeContent, getSpeed());
+    }
 
-.container, .topBar, .contactBar{
-  width: calc(100vw - 1.6rem);
-}
-.textCenter{
-  display: flex; 
-  align-items: flex-start; 
-  justify-content: flex-start; 
-  flex-direction: column;
-  text-align: left; 
-  position: relative; 
-  top: 20%; 
-  left: 0;
-  transform: none; 
+    // Adjust marquee speed on window resize
+    window.addEventListener('resize', () => {
+        if (marqueeContent) {
+            startMarquee(marqueeContent, getSpeed());
+        }
+        if (mobileMarqueeContent) {
+            startMarquee(mobileMarqueeContent, getSpeed());
+        }
+    });
+});
 
-  width: 100%;
+function startMarquee(contentElement, speed) {
+    let currentLeft = 0;
+    let animationFrameId;
 
-}
+    const moveMarquee = () => {
+        const contentWidth = contentElement.scrollWidth / 2;
+        currentLeft += speed;
 
+        if (Math.abs(currentLeft) >= contentWidth) {
+            currentLeft = 0;
+        }
 
-.textButtonSmall label{
-  padding: 1.2rem 0 0 0;
-}
+        contentElement.style.transform = `translateX(${currentLeft}px)`;
+        animationFrameId = requestAnimationFrame(moveMarquee);
+    };
 
-figure.textButtonSmall{
-  margin: 0;
-}
+    // Cancel the previous animation before starting a new one
+    if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+    }
 
-svg#reload-button {
-    width: 8.8rem;
-}
-svg#closingX {
-  color:var(--white);
-  width: 1.6rem;
-  float: right;
-  position: relative;
-  margin-right: .5rem;
-  margin-top: .4rem;
-  cursor: pointer;
+    moveMarquee();
 }
 
-.topBar{
-padding: .9rem 0;
-}
-.menuButton{
-left: calc(100% - 9ch);
-}
-.contact{
-  width: 100%;
-  margin-bottom: 2rem;
-padding-top: .3rem;
-  color: var(--interactive);
-  display: none;
-  position: absolute;
-  left:0;
-  margin-left: 0;
-}
-.contact figure{
-  line-height: 1.55rem;
-}
-.c2, .c3{
-margin-left: 0px;
-}
-.c2{
-    margin-top: -2rem
-}
-.c3{
-  margin-top: 4rem;
-}
-
-.marquee-part span {
-  margin: 0 20vw; /* Adjust the spacing between items */
-
-}
-.bold{
-  padding-bottom: 0px;
-}
-
-input[type=checkbox]#toggle:checked ~ .mainContainer svg#reload-button {
-visibility: hidden;
-}
-input[type=checkbox]#toggle:checked ~ .mainContainer svg#closingX {
-display: block;
-}
-input[type=checkbox]#toggle:checked ~ .mainContainer h1 {
-
-font-size: 1.34rem;
-line-height: 2rem;
-}
+// Existing code for the reload button
+const reloadButton = document.getElementById("reload-button");
+reloadButton.addEventListener("click", () => {
+    location.reload();
+});
 
 
-}
 
-/*Tablet*/
-@media screen and (max-width: 1140px) and (min-width: 768px){
 
-  .container, .topBar, .contactBar{
-    width: calc(100vw - 6rem);
-  }
-  .contact{
-    width: 50%;
-    float: left;
-    margin-bottom: 2rem;
-    color: var(--interactive);
-    display: none;
-  }
-  .c2{
-  margin-left: 50%;
 
-  }
-  .c3{
-  margin-left: 30px;
-  min-width: 20ch;
-  }
+</script>
 
-}
+
+  </html>
