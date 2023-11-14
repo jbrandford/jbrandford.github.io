@@ -9,7 +9,7 @@
     <meta property="og:title" content="Time to Stay" />
     <meta property="og:description" content="Exceptional accommodation, meaningful experiences." />
     <meta property="og:url" content="https://jbrandford.github.io" />
-    <meta property="og:image" content="https://jbrandford.github.io/Img/T.jpg" />
+    <meta property="og:image" content="https://jbrandford.github.io/Img/T2.jpg" />
     <title> Time to Stay</title>
   <link rel="stylesheet" href="Style2.css" type="text/css">
   <!-- <link rel="icon" type="image/png" href="Img/IcoDm.png" media="(not all and (min-resolution: 1.5dppx)) and (prefers-color-scheme:dark)">
@@ -209,6 +209,38 @@ reloadButton.addEventListener("click", () => {
 });
 
 
+// body colour change 
+document.addEventListener('DOMContentLoaded', function() {
+    var checkbox = document.getElementById('toggle');
+    var body = document.body;
+
+    // Function to toggle body class
+    function toggleBodyClass(add) {
+        if (add) {
+            body.classList.add('color-change');
+        } else {
+            body.classList.remove('color-change');
+        }
+    }
+
+    // Event listener for checkbox change
+    checkbox.addEventListener('change', function() {
+        toggleBodyClass(checkbox.checked);
+    });
+
+    // Event listeners for all labels associated with the checkbox
+    var labels = document.querySelectorAll('label[for="toggle"]');
+    labels.forEach(function(label) {
+        label.addEventListener('mouseover', function() {
+            toggleBodyClass(true);
+        });
+        label.addEventListener('mouseout', function() {
+            if (!checkbox.checked) {
+                toggleBodyClass(false);
+            }
+        });
+    });
+});
 
 
 
