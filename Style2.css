@@ -605,7 +605,7 @@ display: block;
 }
 input[type=checkbox]#toggle:checked ~ .mainContainer h1 {
 
-font-size: 1.2rem;
+font-size: 1.34rem;
 line-height: 2rem;
 }
 
